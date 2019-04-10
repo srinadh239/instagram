@@ -1,7 +1,7 @@
 const path = require('path');
 require('@babel/register');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
+console.log(path.resolve(__dirname, '../../dist'));
 module.exports = {
   entry: {
     app: './index.js'

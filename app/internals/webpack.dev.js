@@ -16,13 +16,14 @@ module.exports = merge(common, {
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
-      filename: 'index.html'
+      filename: 'index.html',
+      excludeChunks: [ 'server' ]
     })
   ],
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3001'
+        target: 'http://localhost:3001/api'
       }
     }
   }
