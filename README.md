@@ -1,6 +1,8 @@
 # instagram
 
-Using JSON server to get fake REST API
+Using JSON server to get fake REST API.
+
+Open in mobile view for better experience.
 
 ### Build
 ```
