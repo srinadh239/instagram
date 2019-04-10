@@ -2,13 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import { convertTime } from '../../utils/time';
+import { List } from 'immutable';
 
 class CommentList extends React.PureComponent{
+  static propTypes = {
+    list: PropTypes.instanceOf(List),
+    handleCommentLike: PropTypes.func,
+  };
+
   render() {
     return (
       <div>
         {
-          this.props.list && this.props.list.map((item) => <div className="row comment-wrapper" id={item.get('id')}>
+          this.props.list && this.props.list.map((item) => <div className="row comment-wrapper" key={item.get('id')}>
             <div className="col-2 text-comment-image">
               <img
                 alt="post"

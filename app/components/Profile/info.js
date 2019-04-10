@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { Map } from 'immutable';
 
 class Info extends React.PureComponent {
+  static propTypes = {
+    profile: PropTypes.instanceOf(Map),
+  };
+
   render() {
     const { profile } = this.props;
 

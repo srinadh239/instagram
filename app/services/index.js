@@ -5,7 +5,7 @@ export async function getProfileDetails() {
 
 export async function getPostDetails(id) {
   // As there is no authentication, hard coding profileId
-  const response = await fetch(`/api/posts?profileId=1&id=${id}&_embed=comments`);
+  const response = await fetch(`/api/posts?profileId=1&id=${id}&_embed=comments&_expand=profile`);
   return response.json();
 }
 
@@ -15,8 +15,6 @@ export async function getComments(id) {
 }
 
 export async function addComments(id, comment) {
-  console.log(id);
-  console.log(comment);
   const response = await fetch(`/api/comments?_expand=profile`, {
     method: 'POST',
     headers: {

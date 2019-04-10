@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import Icon from '../Icon';
 
 class CommentInput extends React.PureComponent{
+  static propTypes = {
+    avatar: PropTypes.string,
+    handleAddComment: PropTypes.func,
+  };
+
   constructor(props) {
     super(props);
 
@@ -10,13 +15,16 @@ class CommentInput extends React.PureComponent{
       comment: '',
     }
   }
+
   handleChange = (e) => {
     this.setState({ comment: e.target.value });
   }
+
   handleComment = () => {
     this.props.handleAddComment(this.props.postId, this.state.comment);
     this.setState({ comment: '' });
   }
+
   render() {
     return (
       <div className="row no-gutters footer-wrapper">

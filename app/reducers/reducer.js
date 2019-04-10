@@ -25,14 +25,13 @@ const initialReducer = (state = initialState, action) => {
     case HANDLE_POSTS_LIKE: {
       let postData = state.get('postData');
       postData = postData.set('likes', (postData.get('likes') + 1));
-
+      // Due to lack of time, updating the likes on client side
       return state.set('postData', postData);
     };
     case HANDLE_COMMENTS_LIKE: {
       let comments = state.get('commentList');
-
-      comments = comments.update(comments.findIndex((comment) => (comment.id === action.id)), (item) => item.set('likes', (item.get('likes') + 1)))
-
+      comments = comments.update(comments.findIndex((comment) => (comment.get('id') === action.id)), (item) => item.set('likes', (item.get('likes') + 1)))
+      // Due to lack of time, updating the likes on client side
       return state.set('commentList', comments);
     };
     case HANDLE_ADD_COMMENT_SUCCESS: {

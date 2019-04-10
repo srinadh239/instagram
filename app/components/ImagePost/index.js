@@ -1,8 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
+import { Map } from 'immutable';
 
 class ImagePost extends React.PureComponent{
+  static propTypes = {
+    postData: PropTypes.instanceOf(Map),
+    name: PropTypes.string,
+    handlePostLike: PropTypes.func,
+    handleViewComments: PropTypes.func,
+  };
+
   render() {
     const { postData, name } = this.props;
 

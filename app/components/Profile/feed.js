@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon';
+import { List } from 'immutable';
 
-const images = [
-  'http://lorempixel.com/300/480/people',
-  'http://lorempixel.com/300/480/transport',
-  'http://lorempixel.com/300/480/nature',
-  'http://lorempixel.com/300/480/cats',
-  'http://lorempixel.com/300/480/city',
-  'http://lorempixel.com/300/480/sports',
-];
 class Feed extends React.PureComponent {
+  static propTypes = {
+    posts: PropTypes.instanceOf(List),
+    handlePostClick: PropTypes.func,
+  };
+
   render() {
     const { posts } = this.props;
 

@@ -12,12 +12,20 @@ import { selectPostComments, selectProfileDetails } from '../../selectors';
 import { fetchComments, handleCommentLike, handleAddComment } from '../../actions';
 
 class Comments extends React.PureComponent{
+  static propTypes = {
+    comments: PropTypes.instanceOf(List),
+    profile: PropTypes.instanceOf(Map),
+    fetchComments: PropTypes.func,
+  };
+
   componentDidMount() {
     this.props.fetchComments(this.props.match.params.id);
   }
+
   handleGoBack = () => {
     this.props.history.goBack();
   }
+
   render() {
     const { comments, profile } = this.props;
 
